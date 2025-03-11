@@ -1,0 +1,49 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Category {
+  id: String!
+  name: String!
+}
+
+input CreateCategoryInput {
+  name: String!
+}
+
+input CreateProductInput {
+  categoryId: String!
+  description: String!
+  name: String!
+  price: Float!
+}
+
+type Mutation {
+  suaSanPham(input: UpdateProductInput!): Product!
+  themDanhMuc(input: CreateCategoryInput!): Category!
+  themSanPhamMoi(input: CreateProductInput!): Product!
+  xoaSanPham(id: String!): Boolean!
+}
+
+type Product {
+  categoryId: String!
+  description: String!
+  id: String!
+  name: String!
+  price: Float!
+}
+
+type Query {
+  layDanhSachDanhMuc: [Category!]!
+  layDanhSachDanhMucTheoId(id: String!): Category!
+  layDanhSachSanPham: [Product!]!
+  layDanhSachSanPhamTheoId(categoryId: String!): [Product!]!
+}
+
+input UpdateProductInput {
+  categoryId: String
+  description: String
+  id: ID!
+  name: String
+  price: Float
+}
